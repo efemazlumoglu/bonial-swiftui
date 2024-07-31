@@ -11,9 +11,12 @@ class NewsViewModel: ObservableObject {
     @Published var articles = [Article]()
     private var page = 1
     private let pageSize = 21
-    private let apiKey = "52274407db4147199d48d85337437f41"
     private let session: URLSession
     private var isLoading = false
+    
+    private var apiKey: String {
+        return Bundle.main.infoDictionary?["APIKey"] as? String ?? ""
+    }
 
     init(session: URLSession = .shared) {
         self.session = session
@@ -23,7 +26,7 @@ class NewsViewModel: ObservableObject {
     func loadNews() {
         guard !isLoading else { return }
         isLoading = true
-        guard let url = URL(string: "https://newsapi.org/v2/top-headlines?country=us&pageSize=\(pageSize)&page=\(page)&apiKey=\(apiKey)") else { return }
+        guard let url = Constants.topHeadlinesURL(page: page, pageSize: pageSize, apiKey: apiKey) else { return }
         session.dataTask(with: url) { data, response, error in
             self.isLoading = false
             guard let data = data, error == nil else { return }

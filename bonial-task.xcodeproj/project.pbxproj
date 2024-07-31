@@ -20,6 +20,7 @@
 		804E990E2C5A51A900225112 /* ArticleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E990D2C5A51A900225112 /* ArticleDetailView.swift */; };
 		804E99102C5A5D5600225112 /* NewListViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E990F2C5A5D5600225112 /* NewListViewTests.swift */; };
 		804E99132C5A5DEE00225112 /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 804E99122C5A5DEE00225112 /* ViewInspector */; };
+		804E99162C5A618B00225112 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E99152C5A618B00225112 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		804E990B2C5A4FAF00225112 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		804E990D2C5A51A900225112 /* ArticleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailView.swift; sourceTree = "<group>"; };
 		804E990F2C5A5D5600225112 /* NewListViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListViewTests.swift; sourceTree = "<group>"; };
+		804E99152C5A618B00225112 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		804E99172C5A61E200225112 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +109,8 @@
 		804B085E2C5A2A84007D679D /* bonial-task */ = {
 			isa = PBXGroup;
 			children = (
+				804E99172C5A61E200225112 /* Info.plist */,
+				804E99142C5A618000225112 /* Constants */,
 				804E990A2C5A4F9B00225112 /* Extensions */,
 				804B08962C5A468E007D679D /* View */,
 				804B08932C5A461E007D679D /* ViewModel */,
@@ -174,6 +179,14 @@
 				804E990B2C5A4FAF00225112 /* String.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		804E99142C5A618000225112 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				804E99152C5A618B00225112 /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +329,7 @@
 				804B08922C5A4607007D679D /* NewsModel.swift in Sources */,
 				804B08602C5A2A84007D679D /* bonial_taskApp.swift in Sources */,
 				804E990C2C5A4FAF00225112 /* String.swift in Sources */,
+				804E99162C5A618B00225112 /* Constants.swift in Sources */,
 				804B08982C5A4695007D679D /* NewsView.swift in Sources */,
 				804B08952C5A463E007D679D /* NewsViewModel.swift in Sources */,
 			);
@@ -485,6 +499,7 @@
 				DEVELOPMENT_TEAM = XXYB66DA42;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "bonial-task/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -514,6 +529,7 @@
 				DEVELOPMENT_TEAM = XXYB66DA42;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "bonial-task/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
