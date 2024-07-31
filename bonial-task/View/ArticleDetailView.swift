@@ -21,11 +21,15 @@ struct ArticleDetailView: View {
                             Text("Failed to load image")
                                 .foregroundColor(.red)
                         } else {
-                            ProgressView()
+                            Image("noImagePlaceholder").resizable()
                         }
                     }
                     .frame(maxHeight: 300)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
+                } else {
+                    Image("noImagePlaceholder").resizable()
+                        .frame(maxHeight: 300)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
                 
                 Text(article?.title ?? "")
@@ -53,6 +57,6 @@ struct ArticleDetailView: View {
             }
             .padding()
         }
-        .navigationTitle("Article Details")
+        .navigationTitle("Article Detail")
     }
 }

@@ -29,10 +29,14 @@ struct NewsListView: View {
                                     AsyncImage(url: url) { image in
                                         image.resizable()
                                     } placeholder: {
-                                        ProgressView()
+                                        Image("noImagePlaceholder").resizable()
                                     }
                                     .frame(maxHeight: 200)
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
+                                } else {
+                                    Image("noImagePlaceholder").resizable()
+                                        .frame(maxHeight: 200)
+                                        .clipShape(RoundedRectangle(cornerRadius: 10))
                                 }
                                 Text(firstArticle.title)
                                     .font(.headline)
@@ -61,10 +65,14 @@ struct NewsListView: View {
                                             AsyncImage(url: url) { image in
                                                 image.resizable()
                                             } placeholder: {
-                                                ProgressView()
+                                                Image("noImagePlaceholder").resizable()
                                             }
                                             .frame(maxHeight: 100)
                                             .clipShape(RoundedRectangle(cornerRadius: 10))
+                                        } else {
+                                            Image("noImagePlaceholder").resizable()
+                                                .frame(maxHeight: 200)
+                                                .clipShape(RoundedRectangle(cornerRadius: 10))
                                         }
                                         Text(article.title)
                                             .font(.headline)
