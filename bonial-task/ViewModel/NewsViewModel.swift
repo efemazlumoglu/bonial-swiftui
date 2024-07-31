@@ -26,7 +26,6 @@ class NewsViewModel: ObservableObject {
         guard let url = URL(string: "https://newsapi.org/v2/top-headlines?country=us&pageSize=\(pageSize)&page=\(page)&apiKey=\(apiKey)") else { return }
         session.dataTask(with: url) { data, response, error in
             self.isLoading = false
-
             guard let data = data, error == nil else { return }
 
             do {
