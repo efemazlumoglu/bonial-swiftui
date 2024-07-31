@@ -9,6 +9,8 @@ import SwiftUI
 
 struct NewsListView: View {
     @ObservedObject var viewModel: NewsViewModel
+    @State private var selectedArticle: Article?
+    @State private var isDetailViewPresented = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -18,7 +20,7 @@ struct NewsListView: View {
                       GridItem(.flexible()), // Second column for portrait mode items
                       isPortrait ? nil : GridItem(.flexible()) // Third column for landscape mode items
             ].compactMap { $0 }
-            NavigationView {
+            NavigationStack {
                 ScrollView {
                     VStack {
                         if let firstArticle = viewModel.articles.first {
@@ -34,10 +36,10 @@ struct NewsListView: View {
                                 }
                                 Text(firstArticle.title)
                                     .font(.headline)
-                                    .lineLimit(1)
+                                    .lineLimit(3)
                                 Text(firstArticle.content ?? "")
                                     .font(.subheadline)
-                                    .lineLimit(2)
+                                    .lineLimit(4)
                                 Text(firstArticle.author ?? "")
                                     .font(.caption)
                                     .foregroundColor(.secondary)
@@ -46,6 +48,10 @@ struct NewsListView: View {
                                     .foregroundColor(.secondary)
                             }
                             .padding()
+                            .onTapGesture {
+                                selectedArticle = firstArticle
+                                isDetailViewPresented = true
+                            }
                         }
                         if viewModel.articles.count > 1 {
                             LazyVGrid(columns: columns, spacing: 16) {
@@ -62,10 +68,10 @@ struct NewsListView: View {
                                         }
                                         Text(article.title)
                                             .font(.headline)
-                                            .lineLimit(1)
+                                            .lineLimit(3)
                                         Text(article.content ?? "")
                                             .font(.subheadline)
-                                            .lineLimit(2)
+                                            .lineLimit(4)
                                         Text(article.author ?? "")
                                             .font(.caption)
                                             .foregroundColor(.secondary)
@@ -74,6 +80,10 @@ struct NewsListView: View {
                                             .foregroundColor(.secondary)
                                     }
                                     .padding([.leading, .trailing], 8)
+                                    .onTapGesture {
+                                        selectedArticle = article
+                                        isDetailViewPresented = true
+                                    }
                                     .onAppear {
                                         if article == viewModel.articles.last {
                                             viewModel.loadNews()
@@ -85,6 +95,12 @@ struct NewsListView: View {
                         }
                     }
                     .navigationTitle("News")
+                    NavigationLink(
+                        destination: ArticleDetailView(article: selectedArticle),
+                        isActive: $isDetailViewPresented
+                    ) {
+                        EmptyView()
+                    }
                 }
             }
         }
